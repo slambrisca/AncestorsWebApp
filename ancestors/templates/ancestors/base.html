@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>{% block title %}My amazing site{% endblock title %}</title>
+</head>
+<body>
+
+
+<div id="sidebar">
+    {% block sidebar %}
+
+    {% endblock sidebar %}
+</div>
+
+<div id="content">
+        {% block content %}
+
+        {% endblock %}
+</div>
+
+
+</body>
+</html>

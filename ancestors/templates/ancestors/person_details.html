@@ -1,0 +1,14 @@
+{% extends "ancestors/base.html" %}
+
+
+{% block content %}
+    {% if person %}
+        <h2> {{ person }}</h2>
+
+        <ul>
+        {% for file in person.getFiles %}
+            <li><a href="{% url 'show_file' person.id file.id %}">{{ file }}</a></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock content %}

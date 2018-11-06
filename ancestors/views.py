@@ -1,6 +1,4 @@
-from django.http import HttpResponse
 from django.shortcuts import render,get_object_or_404
-from django.http import Http404
 
 from .models import Person, File
 
@@ -9,6 +7,19 @@ from .models import Person, File
 def index(request):
     context = {}
     return render(request,'ancestors/home.html',context)
+
+def search_person(request):
+    filter = request.GET.get('search')
+    personsByName = Person.objects.filter(name__icontains=filter)
+    personsBySurname = Person.objects.filter(surname__icontains=filter)
+    personsByIdNumber = Person.objects.filter(id_number__icontains=filter)
+    context = {
+        "personsByName":personsByName,
+        "personsBySurname": personsBySurname,
+        "personsByIdNumber": personsByIdNumber
+    }
+
+    return render(request, 'ancestors/search_results.html', context)
 
 def show_person(request,person_id):
     person = get_object_or_404(Person,pk=person_id)

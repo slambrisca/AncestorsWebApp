@@ -1,0 +1,14 @@
+{% extends "ancestors/base.html" %}
+
+
+{% block content %}
+
+    <h1>Search Results</h1>
+
+    {% include 'ancestors/list_person.html' with persons=personsByName %}
+
+    {% include 'ancestors/list_person.html' with persons=personsBySurname %}
+
+    {% include 'ancestors/list_person.html' with persons=personsByIdNumber %}
+
+{% endblock content %}

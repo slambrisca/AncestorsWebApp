@@ -1,0 +1,8 @@
+ {% if persons %}
+    <h2>Matches by Name</h2>
+    <ul>
+        {% for person in persons %}
+            <li><a href="{% url 'show_person' person.id %}">{{ person }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
